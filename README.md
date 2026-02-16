@@ -220,8 +220,8 @@ The project uses only the Python Standard Library.
 
 ## Author
 
-Prathicksha S
-Decision & Computing Sciences
+Prathicksha S<br>
+Decision & Computing Sciences<br>
 Coimbatore Institute of Technology (CIT)
 
 ---
