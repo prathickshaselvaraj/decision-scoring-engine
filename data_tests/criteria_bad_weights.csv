@@ -1,0 +1,7 @@
+criterion,weight,direction
+cost_per_unit,0.25,cost
+quality_score,0.20,benefit
+delivery_days,0.15,cost
+compliance_score,0.20,benefit
+support_sla_hours,0.10,cost
+warranty_months,0.12,benefit

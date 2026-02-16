@@ -1,0 +1,9 @@
+alternative,cost_per_unit,quality_score,delivery_days,support_sla_hours,warranty_months
+VendorA,520,8.6,12,6,24
+VendorB,480,7.9,10,8,18
+VendorC,550,9.2,15,5,36
+VendorD,500,8.3,11,7,24
+VendorE,470,7.5,14,10,12
+VendorF,520,8.6,12,6,24
+VendorG,650,9.5,9,4,48
+VendorH,490,6.8,10,6,24
