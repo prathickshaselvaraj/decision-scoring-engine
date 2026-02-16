@@ -1,0 +1,7 @@
+criterion,weight,direction
+aptitude_score,0.20,benefit
+coding_score,0.30,benefit
+interview_score,0.25,benefit
+experience_years,0.15,benefit
+notice_period_days,0.05,cost
+communication_score,0.05,benefit

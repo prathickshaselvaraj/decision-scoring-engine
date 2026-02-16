@@ -1,20 +1,14 @@
 """
-io_utils.py
-------------
 Handles reading and writing csv files.
-No scoring logic here.
 """
-
 import csv
 from typing import Dict, List, Tuple
 
-
 def read_csv_as_dicts(path: str) -> Tuple[List[str], List[Dict[str, str]]]:
     """
-    Reads a csv file and returns:
+    reads a csv file and returns:
     - headers (list of column names)
     - rows (list of dicts)
-
     Each row is stored as strings.
     """
     with open(path, "r", newline="", encoding="utf-8") as f:
@@ -23,16 +17,13 @@ def read_csv_as_dicts(path: str) -> Tuple[List[str], List[Dict[str, str]]]:
         rows = [row for row in reader]
     return headers, rows
 
-
 def write_ranked_output_csv(path: str, rows: List[Dict[str, object]]) -> None:
     """
-    Writes ranked results into a csv file.
+    writes ranked results into a csv file.
     """
     if not rows:
         raise ValueError("No ranked rows to write.")
-
     headers = list(rows[0].keys())
-
     with open(path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=headers)
         writer.writeheader()
