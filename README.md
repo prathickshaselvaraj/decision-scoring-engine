@@ -15,6 +15,26 @@ The system reads input data from CSV files, normalizes the scores to a common sc
 
 ---
 
+## Real World Use Case Demonstrated (Hiring / Candidate Shortlisting)
+
+To demonstrate real-world applicability, the system is also tested using a **Hiring / Candidate Shortlisting dataset**, where candidates are evaluated based on criteria such as:
+
+* aptitude score
+* coding score
+* interview score
+* experience
+* notice period
+* communication
+
+The scoring engine ranks candidates objectively and provides a transparent breakdown of why a candidate scored higher.
+
+The HR dataset is available inside the `data/` folder:
+
+* `criteria_hr.csv`
+* `scores_hr.csv`
+
+---
+
 ## Model / Method Used
 
 This solution uses the **Weighted Sum Model (WSM)**, which is a widely used technique in **Multi-Criteria Decision Making (MCDM)**.
@@ -47,7 +67,7 @@ delivery_days,0.15,cost
 compliance_score,0.20,benefit
 support_sla_hours,0.10,cost
 warranty_months,0.10,benefit
-```
+````
 
 ---
 
@@ -183,7 +203,24 @@ Example:
 ```powershell
 python -m src.main --criteria data_tests\criteria_max_min.csv --scores data_tests\scores_max_min.csv --out outputs_test
 ```
+
 This test case validates the normalization edge case where `max == min` for a criterion.
+
+---
+
+## Optional Streamlit UI (Demo Only)
+
+A simple Streamlit UI is included to demonstrate the workflow in an interactive way.
+
+**Important Note:**
+Streamlit is used only for file upload and displaying results.
+All decision logic (normalization, weighting, scoring, ranking) is implemented manually inside the core engine modules (`src/`).
+
+### Run Streamlit App
+
+```powershell
+streamlit run webapp_streamlit/app.py
+```
 
 ---
 
@@ -205,6 +242,9 @@ decision-scoring-engine/
 │   ├── ranker.py              # ranking logic
 │   ├── reporter.py            # explanation report generator
 │
+├── webapp_streamlit/
+│   └── app.py                 # optional UI demo
+│
 ├── README.md
 └── requirements.txt
 ```
@@ -213,8 +253,11 @@ decision-scoring-engine/
 
 ## Dependencies
 
-No external libraries are required.
-The project uses only the Python Standard Library.
+The scoring engine uses only the Python Standard Library.
+
+Optional dependency for UI:
+
+* streamlit
 
 ---
 
@@ -225,3 +268,19 @@ Decision & Computing Sciences<br>
 Coimbatore Institute of Technology (CIT)
 
 ---
+
+##  Deployment Links
+
+* Streamlit Deployment Link: https://decision-scoring-engine-vtunouk4pxsrizdsow7udn.streamlit.app/
+
+## Demo Screenshots
+
+### Upload & Run
+![Upload](screenshots/upload.png)
+
+### Ranked Output
+![Ranked Output](screenshots/ranked_output.png)
+
+### Contribution Breakdown
+![Contribution](screenshots/contribution.png)
+
