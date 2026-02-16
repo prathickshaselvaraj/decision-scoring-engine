@@ -1,0 +1,9 @@
+rank,alternative,final_score
+1,VendorG,0.75
+2,VendorC,0.645977
+3,VendorA,0.640613
+4,VendorF,0.640613
+5,VendorD,0.626916
+6,VendorB,0.596041
+7,VendorH,0.447222
+8,VendorE,0.395817

@@ -1,7 +1,7 @@
 """
 io_utils.py
 ------------
-Handles reading and writing CSV files.
+Handles reading and writing csv files.
 No scoring logic here.
 """
 
@@ -11,7 +11,7 @@ from typing import Dict, List, Tuple
 
 def read_csv_as_dicts(path: str) -> Tuple[List[str], List[Dict[str, str]]]:
     """
-    Reads a CSV file and returns:
+    Reads a csv file and returns:
     - headers (list of column names)
     - rows (list of dicts)
 
@@ -26,7 +26,7 @@ def read_csv_as_dicts(path: str) -> Tuple[List[str], List[Dict[str, str]]]:
 
 def write_ranked_output_csv(path: str, rows: List[Dict[str, object]]) -> None:
     """
-    Writes ranked results into a CSV file.
+    Writes ranked results into a csv file.
     """
     if not rows:
         raise ValueError("No ranked rows to write.")
