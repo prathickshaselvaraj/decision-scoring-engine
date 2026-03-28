@@ -31,6 +31,22 @@ pipeline {
                 }
             }
         }
+
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('My Sonar Server') {
+                    sh '''
+                        sonar-scanner \
+                        -Dsonar.projectKey=decision-scoring-engine \
+                        -Dsonar.sources=src \
+                        -Dsonar.language=py \
+                        -Dsonar.python.version=3 \
+                        -Dsonar.host.url=http://localhost:9000 \
+                        -Dsonar.token=sqp_7c5365d783b836a3716764843ab2d7a1d17f4269
+                    '''
+                }
+            }
+        }
     }
 
     post {
@@ -38,7 +54,7 @@ pipeline {
             echo 'Pipeline completed successfully!'
         }
         failure {
-            echo 'Pipeline failed. Check test results.'
+            echo 'Pipeline failed. Check logs.'
         }
     }
 }
