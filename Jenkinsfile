@@ -47,14 +47,27 @@ pipeline {
                 }
             }
         }
+
+        stage('Quality Gate') {
+            steps {
+                echo 'Checking Quality Gate...'
+                waitForQualityGate abortPipeline: true
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying to production...'
+            }
+        }
     }
 
     post {
         success {
-            echo 'Pipeline completed successfully!'
+            echo 'Pipeline completed successfully! Deployed!'
         }
         failure {
-            echo 'Pipeline failed. Check logs.'
+            echo 'Quality Gate FAILED! Build stopped. No deployment!'
         }
     }
 }
