@@ -10,8 +10,12 @@ def rank_alternatives(results: List[Dict[str, object]]) -> List[Dict[str, object
     Input:results list from scorer.py
     Output:ranked list with rank number added
     """
+
+    print("Ranking alternatives...")  # 👈 NEW LINE (change)
+
     sorted_results = sorted(results, key=lambda x: x["final_score"], reverse=True)
     ranked: List[Dict[str, object]] = []
+
     for i, item in enumerate(sorted_results, start=1):
         ranked.append(
             {
@@ -22,4 +26,5 @@ def rank_alternatives(results: List[Dict[str, object]]) -> List[Dict[str, object
                 "normalized": item["normalized"],
             }
         )
+
     return ranked
