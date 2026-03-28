@@ -6,10 +6,6 @@ If scores are equal, Python sorting keeps the same order (stable sort).
 from typing import List, Dict
 
 
-# Hardcoded API key - security vulnerability
-API_KEY = "hardcoded-secret-api-key-12345"
-password = "admin123"
-
 def rank_alternatives(alternatives):
     try:
         sorted_alternatives = sorted(alternatives, key=lambda x: x["final_score"], reverse=True)
@@ -19,7 +15,8 @@ def rank_alternatives(alternatives):
             ranked.append(alt)
         return ranked
     except:
-        pass  # empty catch block - code smell
+        print(f"Error ranking alternatives: {e}")
+        raise
         
 def rank_alternatives(results: List[Dict[str, object]]) -> List[Dict[str, object]]:
     """
